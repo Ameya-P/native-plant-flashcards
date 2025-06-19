@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
+
+html {
+  background: linear-gradient(90deg, #819A91, #A7C1A8);
+  color:#F2F2F2;
+  padding: 30px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 600px;
+  min-height: 400px;
+
+  background-color: #EEEFE0;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+
+  margin: 30px;
+  color: #5A827E;
+}
+
+h1 {
+  font-family: 'Chivo';
+  font-weight: 900;
+  font-size: 70px;
+  text-align: center;
+}
+
+em, p, strong {
+  font-family: 'Cambo';
+}
+
+strong {
+  font-weight: bolder;
+}
+
+img {
+  height: 200px;
+  border-radius: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  border: none;
+  background-color: #5A827E;
+  color: #EEEFE0;
+  font-size: x-large;
+
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-radius: 10px;
+}
