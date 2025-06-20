@@ -43,12 +43,24 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>BOTANICAL BASICS</h1>
-      <em>Discover the Golden State's natural treasures, one card at a time!</em>
-      <p><strong>Number of cards:</strong> {cards}</p>
-      <div className="card" onClick={flipCard}>
-        {currentSide}
+      <div className="header">
+        <h1>BOTANICAL BASICS</h1>
+        <em>Discover the Golden State's natural treasures, one card at a time!</em>
+        <p><strong>Number of cards:</strong> {cards}</p>
       </div>
+      
+      <div className="flip-card-container">
+        <div className={`flip-card ${side === 0 ? 'flipped' : ''}`} onClick={flipCard}>
+          <div className="flip-card-front">
+            {plant[1]} {/* Text side */}
+          </div>
+          <div className="flip-card-back">
+              {plant[0]} {/* Image side */}
+          </div>
+        </div>
+      </div>
+
+      <br></br>
       <div className="buttons">
         <button className="previous" onClick={previousCard}>←</button>
         <button className="next" onClick={nextCard}>→</button>
