@@ -4,6 +4,8 @@ import { useState } from 'react';
 const App = () => {
   const [index, setIndex] = useState(0);
   const [side, setSide] = useState(1);
+  const [first, setFirst] = useState("end");
+  const [last, setLast] = useState("");
 
   let plants = [
     [<p>Indian Paintbrush (Castilleja species)</p>, <img src="./src/assets/indianpaintbrush.jpg"></img>],
@@ -25,12 +27,20 @@ const App = () => {
   const nextCard = () => {
     if (index+1 < plants.length) {
       setIndex(index+1);
+      setLast("")
+      setFirst("")
+    } else {
+      setLast("end")
     }
   }
 
   const previousCard = () => {
     if (index-1 >= 0) {
       setIndex(index-1);
+      setFirst("")
+      setLast("")
+    } else {
+      setFirst("end")
     }
   }
 
@@ -62,8 +72,8 @@ const App = () => {
 
       <br></br>
       <div className="buttons">
-        <button className="previous" onClick={previousCard}>←</button>
-        <button className="next" onClick={nextCard}>→</button>
+        <button id={first} className="previous" onClick={previousCard}>←</button>
+        <button id={last} className="next" onClick={nextCard}>→</button>
       </div>
     </div>
   )

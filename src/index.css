@@ -68,6 +68,8 @@ img {
 button {
   border: none;
   background-color: #5A827E;
+  transition: background-color 0.5s ease;
+
   color: #EEEFE0;
   font-size: x-large;
 
@@ -79,7 +81,12 @@ button {
 
 button:hover {
   background-color: #66988d;
-  transition: background-color 0.8s ease;
+  transition: background-color 0.5s ease;
+}
+
+#end {
+  background-color: #6e706f;
+  transition: background-color 0.5s ease;
 }
 
 .flip-card-container {
