@@ -27,6 +27,7 @@ const App = () => {
 
   const [cardsNum, setCardsNum] = useState(plants.length);
   const [streak, setStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
 
   const [input, setInput] = useState("");
   const [status, setStatus] = useState("");
@@ -36,7 +37,13 @@ const App = () => {
         
         if (currPlant == input) {
             setStatus("correct");
-            setStreak(streak + 1);
+
+            const newStreak = streak + 1;
+            setStreak(newStreak);
+
+            if (newStreak > longestStreak){
+              setLongestStreak(newStreak);
+            }
         }
         else{
             setStatus("wrong");
@@ -91,7 +98,8 @@ const App = () => {
         <h3>Discover the Golden State's natural treasures, one card at a time!</h3>
         <div className="card-stats">
           <p>{`Number of cards: ${cardsNum}`}</p>
-          <p>{`Longest streak: ${streak}`}</p>
+          <p>{`Current streak: ${streak}`}</p>
+          <p>{`Longest streak: ${longestStreak}`}</p>
           <button className="shuffle-button" onClick={shuffleCards}>Shuffle</button>
         </div>
       </div>
