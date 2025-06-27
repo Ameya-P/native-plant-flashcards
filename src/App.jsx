@@ -11,18 +11,18 @@ const App = () => {
   const [last, setLast] = useState("");
 
   const [plants, setPlants] = useState([
-    [<p>Indian Paintbrush (Castilleja species)</p>, <img src="./public/assets/indianpaintbrush.jpg"></img>, "red"],
-    [<p>California Poppy (Eschscholzia californica)</p>, <img src="./public/assets/poppy.jpg"></img>, "orange"],
-    [<p>California Goldfields (Lasthenia californica)</p>, <img src="./public/assets/goldfields.jpg"></img>, "yellow"],
-    [<p>Tidy Tips (Layia platyglossa)</p>, <img src="./public/assets/tidytips.jpg"></img>, "yellow"],
-    [<p>Coyote brush (Baccharis pilularis)</p>, <img src="./public/assets/coyotebrush.webp"></img>, "green"],
-    [<p>Baby Blue Eyes (Nemophila menziesii)</p>, <img src="./public/assets/babyblueeyes.webp"></img>, "blue"],
-    [<p>Chia (Salvia hispanica)</p>, <img src="./public/assets/chia.webp"></img>, "blue"],
-    [<p>Desert Lupine (Lupinus sparsiflorus)</p>, <img src="./public/assets/lupine.jpg"></img>, "purple"],
-    [<p>Shooting Star (Dodecatheon species)</p>, <img src="./public/assets/shootingstar.webp"></img>, "purple"],
-    [<p>Purple Owl's Clover (Castilleja exserta)</p>, <img src="./public/assets/clover.webp"></img>, "pink"],
-    [<p>Farewell-to-Spring (Clarkia amoena)</p>, <img src="./public/assets/farewell.webp"></img>, "pink"],
-    [<p>Ghost Flower (Mohavea confertiflora)</p>, <img src="./public/assets/ghost.jpg"></img>, "white"]
+    [<p>Indian Paintbrush (Castilleja species)</p>, <img src="/assets/indianpaintbrush.jpg"></img>, "red"],
+    [<p>California Poppy (Eschscholzia californica)</p>, <img src="/assets/poppy.jpg"></img>, "orange"],
+    [<p>California Goldfields (Lasthenia californica)</p>, <img src="/assets/goldfields.jpg"></img>, "yellow"],
+    [<p>Tidy Tips (Layia platyglossa)</p>, <img src="/assets/tidytips.jpg"></img>, "yellow"],
+    [<p>Coyote brush (Baccharis pilularis)</p>, <img src="/assets/coyotebrush.webp"></img>, "green"],
+    [<p>Baby Blue Eyes (Nemophila menziesii)</p>, <img src="/assets/babyblueeyes.webp"></img>, "blue"],
+    [<p>Chia (Salvia hispanica)</p>, <img src="/assets/chia.webp"></img>, "blue"],
+    [<p>Desert Lupine (Lupinus sparsiflorus)</p>, <img src="/assets/lupine.jpg"></img>, "purple"],
+    [<p>Shooting Star (Dodecatheon species)</p>, <img src="/assets/shootingstar.webp"></img>, "purple"],
+    [<p>Purple Owl's Clover (Castilleja exserta)</p>, <img src="/assets/clover.webp"></img>, "pink"],
+    [<p>Farewell-to-Spring (Clarkia amoena)</p>, <img src="/assets/farewell.webp"></img>, "pink"],
+    [<p>Ghost Flower (Mohavea confertiflora)</p>, <img src="/assets/ghost.jpg"></img>, "white"]
   ])
 
   const [cardsNum, setCardsNum] = useState(plants.length);
