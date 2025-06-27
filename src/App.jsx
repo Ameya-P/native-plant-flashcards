@@ -1,28 +1,44 @@
 import './App.css';
 import { useState } from 'react';
+import Guess from './Components/Guess.jsx';
 
 const App = () => {
+
   const [index, setIndex] = useState(0);
   const [side, setSide] = useState(1);
+
   const [first, setFirst] = useState("end");
   const [last, setLast] = useState("");
 
-  let plants = [
-    [<p>Indian Paintbrush (Castilleja species)</p>, <img src="./src/assets/indianpaintbrush.jpg"></img>],
-    [<p>California Poppy (Eschscholzia californica)</p>, <img src="./src/assets/poppy.jpg"></img>],
-    [<p>California Goldfields (Lasthenia californica)</p>, <img src="./src/assets/goldfields.jpg"></img>],
-    [<p>Tidy Tips (Layia platyglossa)</p>, <img src="./src/assets/tidytips.jpg"></img>],
-    [<p>Coyote brush (Baccharis pilularis)</p>, <img src="./src/assets/coyotebrush.webp"></img>],
-    [<p>Baby Blue Eyes (Nemophila menziesii)</p>, <img src="./src/assets/babyblueeyes.webp"></img>],
-    [<p>Chia (Salvia hispanica)</p>, <img src="./src/assets/chia.webp"></img>],
-    [<p>Desert Lupine (Lupinus sparsiflorus)</p>, <img src="./src/assets/lupine.jpg"></img>],
-    [<p>Purple Owl's Clover (Castilleja exserta)</p>, <img src="./src/assets/clover.webp"></img>],
-    [<p>Farewell-to-Spring (Clarkia amoena)</p>, <img src="./src/assets/farewell.webp"></img>],
-    [<p>Shooting Star (Dodecatheon species)</p>, <img src="./src/assets/shootingstar.webp"></img>],
-    [<p>Ghost Flower (Mohavea confertiflora)</p>, <img src="./src/assets/ghost.jpg"></img>]
-  ];
+  const [plants, setPlants] = useState([
+    [<p>Indian Paintbrush (Castilleja species)</p>, <img src="./src/assets/indianpaintbrush.jpg"></img>, "red"],
+    [<p>California Poppy (Eschscholzia californica)</p>, <img src="./src/assets/poppy.jpg"></img>, "orange"],
+    [<p>California Goldfields (Lasthenia californica)</p>, <img src="./src/assets/goldfields.jpg"></img>, "yellow"],
+    [<p>Tidy Tips (Layia platyglossa)</p>, <img src="./src/assets/tidytips.jpg"></img>, "yellow"],
+    [<p>Coyote brush (Baccharis pilularis)</p>, <img src="./src/assets/coyotebrush.webp"></img>, "green"],
+    [<p>Baby Blue Eyes (Nemophila menziesii)</p>, <img src="./src/assets/babyblueeyes.webp"></img>, "blue"],
+    [<p>Chia (Salvia hispanica)</p>, <img src="./src/assets/chia.webp"></img>, "blue"],
+    [<p>Desert Lupine (Lupinus sparsiflorus)</p>, <img src="./src/assets/lupine.jpg"></img>, "purple"],
+    [<p>Shooting Star (Dodecatheon species)</p>, <img src="./src/assets/shootingstar.webp"></img>, "purple"],
+    [<p>Purple Owl's Clover (Castilleja exserta)</p>, <img src="./src/assets/clover.webp"></img>, "pink"],
+    [<p>Farewell-to-Spring (Clarkia amoena)</p>, <img src="./src/assets/farewell.webp"></img>, "pink"],
+    [<p>Ghost Flower (Mohavea confertiflora)</p>, <img src="./src/assets/ghost.jpg"></img>, "white"]
+  ])
 
-  const [cards, setCards] = useState(plants.length);
+  const [cardsNum, setCardsNum] = useState(plants.length);
+
+  const shuffleCards = () => {
+    for (var i = plants.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = plants[i];
+      plants[i] = plants[j];
+      plants[j] = temp;
+    }
+
+    setPlants([...plants])
+    console.log(plants)
+  }
+
 
   const nextCard = () => {
     if (index+1 < plants.length) {
@@ -56,7 +72,10 @@ const App = () => {
       <div className="header">
         <h1>BOTANICAL BASICS</h1>
         <em>Discover the Golden State's natural treasures, one card at a time!</em>
-        <p><strong>Number of cards:</strong> {cards}</p>
+        <div className="card-stats">
+          <p>{`Number of cards: ${cardsNum}`}</p>
+          <button className="shuffle-button" onClick={shuffleCards}>Shuffle</button>
+        </div>
       </div>
       
       <div className="flip-card-container">
@@ -64,13 +83,14 @@ const App = () => {
           <div className="flip-card-front">
             {plant[1]} {/* Text side */}
           </div>
-          <div className="flip-card-back">
+          <div className={`flip-card-back ${plant[2]}`}>
               {plant[0]} {/* Image side */}
           </div>
         </div>
       </div>
 
       <br></br>
+      <Guess currPlant={plant[0].props.children}></Guess>
       <div className="buttons">
         <button id={first} className="previous" onClick={previousCard}>←</button>
         <button id={last} className="next" onClick={nextCard}>→</button>

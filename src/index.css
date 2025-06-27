@@ -1,6 +1,8 @@
+/* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cambo&display=swap');
 
+/* ---------------- BASIC STYLING ---------------- */
 html {
   background: linear-gradient(90deg, #819A91, #A7C1A8);
   color:#F2F2F2;
@@ -13,22 +15,7 @@ html {
   align-items: center;
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  min-width: 600px;
-  min-height: 400px;
-
-  background-color: #EEEFE0;
-  border-radius: 25px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
-
-  margin: 30px;
-  color: #5A827E;
-}
-
+/*  ---------------- TITLE, HEADERS ---------------- */
 .header {
   display: flex;
   flex-direction: column;
@@ -53,42 +40,29 @@ strong {
   font-weight: bolder;
 }
 
+/*  ---------------- CARDS ---------------- */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 600px;
+  min-height: 400px;
+
+  background-color: #EEEFE0;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+
+  margin: 30px;
+  color: #5A827E;
+}
+
 img {
   height: 300px;
   border-radius: 10px;
 }
 
-.buttons {
-  display: flex;
-  gap: 30px;
-
-  margin-top: 30px;
-}
-
-button {
-  border: none;
-  background-color: #5A827E;
-  transition: background-color 0.5s ease;
-
-  color: #EEEFE0;
-  font-size: x-large;
-
-  padding: 30px;
-
-  border-radius: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-  background-color: #66988d;
-  transition: background-color 0.5s ease;
-}
-
-#end {
-  background-color: #6e706f;
-  transition: background-color 0.5s ease;
-}
-
+/* ------- CARD FLIP MECHANICS -------- */
 .flip-card-container {
   perspective: 1000px;
   color:#5A827E;
@@ -118,7 +92,7 @@ button:hover {
   align-items: center;
   min-width: 600px;
   min-height: 400px;
-  background: linear-gradient(180deg, #EEEFE0, #d6d4cb);
+  background: linear-gradient(180deg, #EEEFE0, #cfd0c0);
   border-radius: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
 }
@@ -126,3 +100,114 @@ button:hover {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+.flip-card-back.red {
+  background: linear-gradient(180deg, #EEEFE0, #e9ad9c);
+  color: #b4352c;
+}
+
+.flip-card-back.orange {
+  background: linear-gradient(180deg, #EEEFE0, #e9ba9c);
+  color: #c35714;
+}
+
+.flip-card-back.yellow {
+  background: linear-gradient(180deg, #EEEFE0, #e9d29c);
+  color: #bd870b;
+}
+
+.flip-card-back.green {
+  background: linear-gradient(180deg, #EEEFE0, #b4eec6);
+  color: #10973b;
+}
+
+.flip-card-back.blue {
+  background: linear-gradient(180deg, #EEEFE0, #b6d8ed);
+  color: #1577b4;
+}
+
+.flip-card-back.purple {
+  background: linear-gradient(180deg, #EEEFE0, #d9c2f1);
+  color: #794aac;
+}
+
+.flip-card-back.pink {
+  background: linear-gradient(180deg, #EEEFE0, #f1c2e8);
+  color: #a64995;
+}
+
+.flip-card-back.white {
+  background: linear-gradient(180deg, #EEEFE0, #ffffff);
+  color: #818c8b;
+}
+/*  ---------------- NEXT/PREV BUTTONS ---------------- */
+.buttons {
+  display: flex;
+  gap: 30px;
+
+  margin-top: 30px;
+}
+
+button {
+  font-family: 'Chivo';
+
+  border: none;
+  background-color: #5A827E;
+  transition: background-color 0.5s ease;
+
+  color: #EEEFE0;
+  font-size: x-large;
+
+  padding: 30px;
+
+  border-radius: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #66988d;
+  transition: background-color 0.5s ease;
+}
+
+/* Turns buttons gray when you hit the end */
+#end {
+  background-color: #6e706f;
+  transition: background-color 0.5s ease;
+}
+
+/*  ---------------- INPUT SECTION ---------------- */
+.answer-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 600px;
+}
+
+input {
+  flex: 3;
+
+  font-family: 'Chivo';
+  font-size: large;
+  text-align: center;
+
+  border: none;
+  border-radius: 10px;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Changes color of the input based on correctness of the answer */
+#correct {
+  background-color: rgb(158, 219, 183);
+}
+
+#wrong {
+  background-color: rgb(253, 190, 216);
+}
+
+.submit-button {
+  flex: 1;
+  border-radius: 10px;
+}
+
