@@ -26,6 +26,23 @@ const App = () => {
   ])
 
   const [cardsNum, setCardsNum] = useState(plants.length);
+  const [streak, setStreak] = useState(0);
+
+  const [input, setInput] = useState("");
+  const [status, setStatus] = useState("");
+  const checkAnswer = (e) => {
+        e.preventDefault(); 
+        let currPlant = plant[0].props.children;
+        
+        if (currPlant == input) {
+            setStatus("correct");
+            setStreak(streak + 1);
+        }
+        else{
+            setStatus("wrong");
+            setStreak(0);
+        }
+    }
 
   const shuffleCards = () => {
     for (var i = plants.length - 1; i > 0; i--) {
@@ -71,9 +88,10 @@ const App = () => {
     <div className="App">
       <div className="header">
         <h1>BOTANICAL BASICS</h1>
-        <em>Discover the Golden State's natural treasures, one card at a time!</em>
+        <h3>Discover the Golden State's natural treasures, one card at a time!</h3>
         <div className="card-stats">
           <p>{`Number of cards: ${cardsNum}`}</p>
+          <p>{`Longest streak: ${streak}`}</p>
           <button className="shuffle-button" onClick={shuffleCards}>Shuffle</button>
         </div>
       </div>
@@ -90,7 +108,7 @@ const App = () => {
       </div>
 
       <br></br>
-      <Guess currPlant={plant[0].props.children}></Guess>
+      <Guess input={input} setInput={setInput} status={status} checkAnswer={checkAnswer}></Guess>
       <div className="buttons">
         <button id={first} className="previous" onClick={previousCard}>←</button>
         <button id={last} className="next" onClick={nextCard}>→</button>
